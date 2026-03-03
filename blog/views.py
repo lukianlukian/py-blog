@@ -10,7 +10,7 @@ class PostListView(ListView):
     template_name = "blog/index.html"
     context_object_name = "post_list"
     ordering = ["-created_time"]
-    paginate_by = 3
+    paginate_by = 5
 
 
 class PostDetailView(DetailView):
