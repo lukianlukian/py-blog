@@ -10,19 +10,11 @@
 </head>
 
 <body>
-  <div class="container">
+  <header>
+    <h1><a href="{% url 'blog:index' %}">Lukian's Blog</a></h1>
+    <hr>
+  </header>
 
-    <header class="site-header">
-      <h1 class="site-title">
-        <a href="{% url 'blog:index' %}">Lukian's Blog</a>
-      </h1>
-      <p class="site-subtitle">Minimal blog layout with clean typography</p>
-    </header>
-
-    <hr class="hr">
-
-    {% block content %}{% endblock %}
-
-  </div>
+  {% block content %}{% endblock %}
 </body>
 </html>

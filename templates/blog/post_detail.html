@@ -3,37 +3,33 @@
 {% block title %}<title>{{ post.title }}</title>{% endblock %}
 
 {% block content %}
-
-  <article class="card">
-    <h2 class="card-title">{{ post.title }}</h2>
-
-    <p class="meta">
-      By {{ post.owner.username }} · {{ post.created_time }} · {{ post.comments.count }} comments
-    </p>
-
-    <p class="content">{{ post.content }}</p>
+  <article>
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+    <p>Author: {{ post.owner.username }} | {{ post.created_time }}</p>
   </article>
 
-  <h3 class="section-title">Comments</h3>
+  <hr>
 
-  <section class="card">
-    {% for c in comments %}
-      <div class="comment">
-        <div class="comment-author">{{ c.user.username }}</div>
-        <div class="comment-time">{{ c.created_time }}</div>
-        <div class="content">{{ c.content }}</div>
-      </div>
-    {% empty %}
-      <p>No comments yet.</p>
-    {% endfor %}
-  </section>
+  <h3>Comments</h3>
 
-  <h3 class="section-title">Add comment</h3>
+  {% for c in comments %}
+    <p>
+      <strong>{{ c.user.username }}</strong>: {{ c.content }}
+      <br>
+      <small>{{ c.created_time }}</small>
+    </p>
+  {% empty %}
+    <p>No comments yet.</p>
+  {% endfor %}
 
-  <form method="post" class="form">
+  <hr>
+
+  <h3>Add comment</h3>
+
+  <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Submit</button>
   </form>
-
 {% endblock %}

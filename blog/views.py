@@ -27,7 +27,6 @@ class PostDetailView(DetailView):
         self.object = self.get_object()
         form = CommentaryForm(request.POST)
 
-        # anonymous -> invalid form (as task requires)
         if not request.user.is_authenticated:
             form.add_error(None, "Only authorized users can post comments.")
         elif form.is_valid():
