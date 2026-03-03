@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block title %}<title>Blog</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+  <div class="container">
+
+    <header class="site-header">
+      <h1 class="site-title">
+        <a href="{% url 'blog:index' %}">Lukian's Blog</a>
+      </h1>
+      <p class="site-subtitle">Minimal blog layout with clean typography</p>
+    </header>
+
+    <hr class="hr">
+
+    {% block content %}{% endblock %}
+
+  </div>
+</body>
+</html>
