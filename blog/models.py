@@ -31,7 +31,7 @@ class Commentary(models.Model):
     post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
-            related_name="comments",
+        related_name="comments",
     )
 
     class Meta:
