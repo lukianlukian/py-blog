@@ -1,6 +1,6 @@
 from django import forms
-from blog.models import Commentary
 
+from blog.models import Commentary
 
 class CommentaryForm(forms.ModelForm):
     class Meta:
